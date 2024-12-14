@@ -741,7 +741,116 @@ Blockly.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "Assign a value to a variables",
         "helpUrl": ""
-    }
+    },
+
+
+
+    {
+        "type": "list_empty_block",
+        "message0": "create empty list",
+        "output": "Array",
+        "colour": 230,
+        "tooltip": "Create an empty list",
+        "helpUrl": ""
+    },
+
+    {
+        "type": "list_create_block",
+        "message0": "create list with %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ITEMS",
+                "check": ["String", "Variable"]
+            }
+        ],
+        "output": "Array",
+        "colour": 230,
+        "tooltip": "Create a list with initial string items",
+        "helpUrl": ""
+    },
+    
+    
+
+    {
+        "type": "list_index_access_block",
+        "message0": "get item at index %1 from list %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "LIST"
+            }
+        ],
+        "output": null,
+        "colour": 230,
+        "tooltip": "Access an element of the list",
+        "helpUrl": ""
+    },
+
+    {
+        "type": "list_append_block",
+        "message0": "append %1 to list %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ELEMENT"
+            },
+            {
+                "type": "input_value",
+                "name": "LIST"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "Add an element to the list",
+        "helpUrl": ""
+    },
+
+    {
+        "type": "list_remove_block",
+        "message0": "remove item at index %1 from list %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "LIST"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "Remove an element from the list",
+        "helpUrl": ""
+    },
+
+    {
+        "type": "data_block",
+        "message0": "Data %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "VAR",
+                "text": "x"
+            }
+        ],
+        "output": "Variable",
+        "colour": 270,
+        "tooltip": "A block that represents a data",
+        "helpUrl": ""
+    },
+    
+    
+    
+    
+    
     
     
     

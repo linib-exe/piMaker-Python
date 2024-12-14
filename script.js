@@ -33,6 +33,7 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="float_block"></block>
         <block type="text_block"></block>
         <block type="variable_block"></block>
+        <block type="data_block"></block>
         <block type="variable_assignment_block"></block>
         <block type="type_block"></block>
     </category>
@@ -75,6 +76,14 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="return_block"></block>
         <block type="function_call_block"></block>
         <block type="function_call_block1"></block>
+    </category>
+
+    <category name="List" colour="180">
+        <block type="list_empty_block"></block>
+        <block type="list_create_block"></block>
+        <block type="list_index_access_block"></block>
+        <block type="list_append_block"></block>
+        <block type="list_remove_block"></block>
     </category>
 
     

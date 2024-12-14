@@ -291,9 +291,44 @@ Blockly.JavaScript['input_block'] = function(block) {
   
 
 
+  Blockly.JavaScript['list_remove_block'] = function(block) {
+    var index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var list = Blockly.JavaScript.valueToCode(block, 'LIST', Blockly.JavaScript.ORDER_ATOMIC) || '[]';
+    var code = list + '.pop(' + index + ')\n';
+    return code;
+};
+
+Blockly.JavaScript['list_append_block'] = function(block) {
+    var element = Blockly.JavaScript.valueToCode(block, 'ELEMENT', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var list = Blockly.JavaScript.valueToCode(block, 'LIST', Blockly.JavaScript.ORDER_ATOMIC) || '[]';
+    var code = list + '.append(' + element + ')\n';
+    return code;
+};
+
+Blockly.JavaScript['list_index_access_block'] = function(block) {
+    var index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC) || '0';
+    var list = Blockly.JavaScript.valueToCode(block, 'LIST', Blockly.JavaScript.ORDER_ATOMIC) || '[]';
+    var code = list + '[' + index + ']';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.JavaScript['list_create_block'] = function(block) {
+    var items = Blockly.JavaScript.valueToCode(block, 'ITEMS', Blockly.JavaScript.ORDER_ATOMIC) || "";
+    var code = `[${items}]`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 
 
+Blockly.JavaScript['list_empty_block'] = function(block) {
+    return ['[]', Blockly.JavaScript.ORDER_ATOMIC];
+};
 
+
+Blockly.JavaScript['data_block'] = function(block) {
+    var variable_name = block.getFieldValue('VAR'); // Retrieve the variable name
+    var code = `${variable_name}`; // Output the variable name as is
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
 
 
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Innovations Python Programming</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/3.20200924.3/blockly.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo1.png" alt="PiMaker Logo" class="logo"> <!-- Replace path with the actual path to your logo -->
+            <h1>PiMaker  Programming</h1>
+        </div>
+    </header>
+    
+    <!-- Show/Hide button placed above the generated code -->
+    <button id="toggleOutput" class="toggle-btn">👁️‍🗨️ Show/Hide Code</button>
+    
+    <div class="container">
+        <div id="blocklyDiv"></div>
+        <div id="outputSection">
+            <div class="output-header">
+                <h4>Generated Code</h4>
+                <div class="output-controls">
+                    <button id="copyCode">📋 </button>
+                    <button id="downloadCode">⬇️ </button>
+                    <button id="saveWorkspaceButton">💾 </button>
+                    <button id="loadWorkspaceButton">📂 </button>
+                </div>
+            </div>
+            <pre id="outputCode">Generated code will appear here...</pre>
+        </div>
+    </div>
+
+    <!-- Include custom scripts -->
+    <script src="custom_blocks.js"></script>
+    <script src="python_code_generator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

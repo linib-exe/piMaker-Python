@@ -86,11 +86,12 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="list_remove_block"></block>
     </category>
 
-    
+    <category name="Tuple" colour="180">
+        <block type="tuple_access_block"></block>
+        <block type="tuple_create_block"></block>
+    </category>
 
 </xml>
-
-
     `
 });
 

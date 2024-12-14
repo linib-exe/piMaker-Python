@@ -309,7 +309,7 @@ Blockly.defineBlocksWithJsonArray([
             {
                 "type": "input_value",
                 "name": "OPERATOR",
-                
+
             },
             {
                 "type": "input_value",
@@ -654,7 +654,7 @@ Blockly.defineBlocksWithJsonArray([
             {
                 "type": "input_value",
                 "name": "RETURN_VALUE",
-                
+
             }
         ],
         "previousStatement": null,
@@ -676,7 +676,7 @@ Blockly.defineBlocksWithJsonArray([
             {
                 "type": "input_value",
                 "name": "PARAMS",
-                
+
             }
         ],
         "colour": 230,
@@ -698,13 +698,13 @@ Blockly.defineBlocksWithJsonArray([
             {
                 "type": "input_value",
                 "name": "PARAMS",
-                
+
             }
         ],
         "colour": 230,
         "tooltip": "Call a function with parameters",
         "helpUrl": "",
-        "output":null
+        "output": null
     },
 
     {
@@ -769,8 +769,6 @@ Blockly.defineBlocksWithJsonArray([
         "tooltip": "Create a list with initial string items",
         "helpUrl": ""
     },
-    
-    
 
     {
         "type": "list_index_access_block",
@@ -778,18 +776,21 @@ Blockly.defineBlocksWithJsonArray([
         "args0": [
             {
                 "type": "input_value",
-                "name": "INDEX"
+                "name": "INDEX",
+                "check": "Number"
             },
             {
                 "type": "input_value",
                 "name": "LIST"
             }
         ],
+        "inputsInline": true,
         "output": null,
         "colour": 230,
         "tooltip": "Access an element of the list",
         "helpUrl": ""
     },
+
 
     {
         "type": "list_append_block",
@@ -804,12 +805,14 @@ Blockly.defineBlocksWithJsonArray([
                 "name": "LIST"
             }
         ],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
         "tooltip": "Add an element to the list",
         "helpUrl": ""
     },
+
 
     {
         "type": "list_remove_block",
@@ -824,6 +827,7 @@ Blockly.defineBlocksWithJsonArray([
                 "name": "LIST"
             }
         ],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 230,
@@ -846,13 +850,42 @@ Blockly.defineBlocksWithJsonArray([
         "tooltip": "A block that represents a data",
         "helpUrl": ""
     },
-    
-    
-    
-    
-    
-    
-    
+
+    {
+        "type": "tuple_create_block",
+        "message0": "create tuple with %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ITEMS",
+                "check": ["String", "Variable"]
+            }
+        ],
+        "output": "Array",
+        "colour": 230,
+        "tooltip": "Create a list with initial string items",
+        "helpUrl": ""
+    },
+
+    {
+        "type": "tuple_access_block",
+        "message0": "get item at index %1 from tuple %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "TUPLE"
+            }
+        ],
+        "output": null,
+        "inputsInline": true,
+        "colour": 230,
+        "tooltip": "Access an element from the tuple at a given index",
+        "helpUrl": ""
+    }
     
     
 

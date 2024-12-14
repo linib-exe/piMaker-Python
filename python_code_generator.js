@@ -265,15 +265,16 @@ Blockly.JavaScript['function_call_block1'] = function (block) {
     var functionName = block.getFieldValue('FUNCTION_NAME');  // Get the function name
     var params = Blockly.JavaScript.valueToCode(block, 'PARAMS', Blockly.JavaScript.ORDER_COMMA) || '';  // Get the parameters
 
-    // If there are parameters, join them with commas
+    // Ensure parameters are properly formatted
     if (params) {
         params = params.split('\n').join(', ');  // Ensure multiple parameters are separated by commas
     }
 
     // Generate Python code for the function call
     var code = functionName + '(' + params + ')';
-    return code + '\n';  // Return the generated Python code with a newline
+    return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];  // Return code as a tuple without newline
 };
+
 
 
 Blockly.JavaScript['input_block'] = function (block) {
@@ -330,7 +331,7 @@ Blockly.JavaScript['data_block'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.JavaScript['tuple_access_block'] = function(block) {
+Blockly.JavaScript['tuple_access_block'] = function (block) {
     var index = Blockly.JavaScript.valueToCode(block, 'INDEX', Blockly.JavaScript.ORDER_ATOMIC) || '0';
     var tuple = Blockly.JavaScript.valueToCode(block, 'TUPLE', Blockly.JavaScript.ORDER_ATOMIC) || '';
     var code = `${tuple}[${index}]`;  // Accessing the item at the given index

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/3.20200924.3/blockly.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.4/brython.min.js"></script>
 </head>
+
 <body onload="brython()">
     <header>
         <div class="logo-container">
@@ -15,10 +17,10 @@
             <h1>PiMaker Programming</h1>
         </div>
     </header>
-    
+
     <!-- Show/Hide button placed above the generated code -->
     <button id="toggleOutput" class="toggle-btn">👁️‍🗨️ Show/Hide Code</button>
-    
+
     <div class="container">
         <div id="blocklyDiv"></div>
         <div id="outputSection">
@@ -71,7 +73,7 @@
         # Bind the Run Code button to the execution function
         document["runCodeButton"].bind("click", execute_generated_code)
     </script>
-    
+
 
     <!-- Script to integrate Blockly and Brython -->
     <script>
@@ -131,4 +133,5 @@
         });
     </script>
 </body>
+
 </html>

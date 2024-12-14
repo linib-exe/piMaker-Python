@@ -91,6 +91,10 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="tuple_create_block"></block>
     </category>
 
+    <category name="Dictionary" colour="180">
+        <block type="dictionary_create_block"></block>
+    </category>
+
 </xml>
     `
 });

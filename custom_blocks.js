@@ -885,8 +885,21 @@ Blockly.defineBlocksWithJsonArray([
         "colour": 230,
         "tooltip": "Access an element from the tuple at a given index",
         "helpUrl": ""
-    }
-    
-    
+    },
 
+    {
+        "type": "dictionary_create_block",
+        "message0": "create dictionary with %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ITEMS",
+                "check": ["String", "Variable"]
+            }
+        ],
+        "output": "Array",
+        "colour": 230,
+        "tooltip": "Create a list with initial string items",
+        "helpUrl": ""
+    },
 ]);

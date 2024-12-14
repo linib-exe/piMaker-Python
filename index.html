@@ -6,12 +6,13 @@
     <title>Pi Innovations Python Programming</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/3.20200924.3/blockly.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.4/brython.min.js"></script>
 </head>
-<body>
+<body onload="brython()">
     <header>
         <div class="logo-container">
-            <img src="logo1.png" alt="PiMaker Logo" class="logo"> <!-- Replace path with the actual path to your logo -->
-            <h1>PiMaker  Programming</h1>
+            <img src="logo1.png" alt="PiMaker Logo" class="logo">
+            <h1>PiMaker Programming</h1>
         </div>
     </header>
     
@@ -31,6 +32,9 @@
                 </div>
             </div>
             <pre id="outputCode">Generated code will appear here...</pre>
+            <button id="runCodeButton">▶️ Run Code</button>
+            <h4>Execution Output:</h4>
+            <pre id="executionOutput">Output will appear here...</pre>
         </div>
     </div>
 
@@ -38,6 +42,93 @@
     <script src="custom_blocks.js"></script>
     <script src="python_code_generator.js"></script>
     <script src="script.js"></script>
+
+    <!-- Brython Execution Script -->
+    <script type="text/python">
+        from browser import document, console, window
+    
+        # Function to execute the generated Python code
+        def execute_generated_code(event):
+            code_area = document["outputCode"]  # Get the generated code
+            output_area = document["executionOutput"]  # Target output display area
+            output_area.text = ""  # Clear previous output
+    
+            try:
+                # Capture the "print" output using a custom function
+                def custom_print(*args):
+                    output_area.text += " ".join(map(str, args)) + "\n"
+    
+                # Override built-in "print" to display output in the designated area
+                global_vars = {"print": custom_print}
+    
+                # Execute the Python code with overridden print
+                exec(code_area.text, global_vars)
+    
+            except Exception as e:
+                # Display any errors in the output area
+                output_area.text = f"Error: {e}"
+    
+        # Bind the Run Code button to the execution function
+        document["runCodeButton"].bind("click", execute_generated_code)
+    </script>
+    
+
+    <!-- Script to integrate Blockly and Brython -->
+    <script>
+        // Initialize Blockly Workspace
+        var blocklyDiv = document.getElementById('blocklyDiv');
+        var workspace = Blockly.inject(blocklyDiv, {
+            toolbox: '<xml><block type="controls_repeat_ext"></block><block type="math_number"></block><block type="text_print"></block></xml>'
+        });
+
+        // Function to generate and display Python code
+        function updateGeneratedCode() {
+            var code = Blockly.Python.workspaceToCode(workspace);
+            document.getElementById('outputCode').textContent = code;
+        }
+
+        // Update code dynamically when blocks change
+        workspace.addChangeListener(updateGeneratedCode);
+
+        // Toggle generated code visibility
+        document.getElementById('toggleOutput').addEventListener('click', () => {
+            const outputSection = document.getElementById('outputSection');
+            outputSection.style.display = outputSection.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Copy code to clipboard
+        document.getElementById('copyCode').addEventListener('click', () => {
+            navigator.clipboard.writeText(document.getElementById('outputCode').textContent);
+            alert("Code copied to clipboard!");
+        });
+
+        // Download generated code as a .py file
+        document.getElementById('downloadCode').addEventListener('click', () => {
+            const blob = new Blob([document.getElementById('outputCode').textContent], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.download = 'generated_code.py';
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        });
+
+        // Save workspace
+        document.getElementById('saveWorkspaceButton').addEventListener('click', () => {
+            const xml = Blockly.Xml.workspaceToDom(workspace);
+            const xmlText = Blockly.Xml.domToText(xml);
+            localStorage.setItem('workspaceXml', xmlText);
+            alert("Workspace saved!");
+        });
+
+        // Load workspace
+        document.getElementById('loadWorkspaceButton').addEventListener('click', () => {
+            const xmlText = localStorage.getItem('workspaceXml');
+            if (xmlText) {
+                const xml = Blockly.Xml.textToDom(xmlText);
+                Blockly.Xml.domToWorkspace(xml, workspace);
+            } else {
+                alert("No saved workspace found.");
+            }
+        });
+    </script>
 </body>
 </html>
-

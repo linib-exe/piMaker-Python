@@ -343,6 +343,12 @@ Blockly.JavaScript['tuple_create_block'] = function (block) {
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.JavaScript['dictionary_create_block'] = function (block) {
+    var items = Blockly.JavaScript.valueToCode(block, 'ITEMS', Blockly.JavaScript.ORDER_ATOMIC) || "";
+    var code = `{${items}}`;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 
 
 

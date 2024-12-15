@@ -7,7 +7,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 20px;
     min-height: 100vh;
 }
 
@@ -110,7 +109,6 @@ h1 {
 
 /* Buttons in the Output Section */
 button {
-    
     color: white;
     border: none;
     padding: 8px 12px;
@@ -119,7 +117,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 60px;
-    
 }
 
 button:hover {
@@ -130,10 +127,19 @@ button:focus {
     outline: none;
 }
 
+
+/* Style the toolbox container */
+.blocklyToolboxDiv {
+    background-color: #f5f5f5;  /* Toolbox background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 220px;  /* Adjust width */
+    padding: 10px;  /* Add padding inside the toolbox */
+}
+
 /* Styling for generated code section */
 pre {
     background-color: #f5f5f5;
-    padding: 10px;
     border-radius: 6px;
     font-size: 14px;
     white-space: pre-wrap;
@@ -142,4 +148,34 @@ pre {
     max-height: 400px;
     overflow-y: auto;
 }
+
+/* Style the toolbox categories */
+.blocklyTreeLabel {
+    font-weight: 600;
+    color: #000000;  /* Set text color */
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Change the entire toolbox background */
+.blocklyToolboxDiv {
+    background-color: #f0f4f8; /* Light gray-blue background */
+    border-right: 1px solid #ddd; /* Optional border on the right */
+}
+
+/* Change the flyout background (where blocks appear) */
+.blocklyFlyoutBackground {
+    fill: #bde0fa; /* Light blue background for flyout */
+}
+
+
+/* Base styles for all Blockly categories */
+.blocklyTreeRow {
+    margin-bottom: 15px;  /* Adjust this value to change the spacing between the rows */
+}
+
+
+
 

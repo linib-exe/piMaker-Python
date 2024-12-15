@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/3.20200924.3/blockly.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.10.4/brython.min.js"></script>
+    <!-- Add this in your <head> section to import the Roboto font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 
 <body onload="brython()">
@@ -27,10 +31,10 @@
             <div class="output-header">
                 <h4>Generated Code</h4>
                 <div class="output-controls">
-                    <button id="copyCode">📋 </button>
-                    <button id="downloadCode">⬇️ </button>
-                    <button id="saveWorkspaceButton">💾 </button>
-                    <button id="loadWorkspaceButton">📂 </button>
+                    <button id="copyCode">📋</button>
+                    <button id="downloadCode">⬇️</button>
+                    <button id="saveWorkspaceButton">💾</button>
+                    <button id="loadWorkspaceButton">📂</button>
                 </div>
             </div>
             <pre id="outputCode">Generated code will appear here...</pre>
@@ -48,28 +52,28 @@
     <!-- Brython Execution Script -->
     <script type="text/python">
         from browser import document, console, window
-    
+
         # Function to execute the generated Python code
         def execute_generated_code(event):
             code_area = document["outputCode"]  # Get the generated code
             output_area = document["executionOutput"]  # Target output display area
             output_area.text = ""  # Clear previous output
-    
+
             try:
                 # Capture the "print" output using a custom function
                 def custom_print(*args):
                     output_area.text += " ".join(map(str, args)) + "\n"
-    
+
                 # Override built-in "print" to display output in the designated area
                 global_vars = {"print": custom_print}
-    
+
                 # Execute the Python code with overridden print
                 exec(code_area.text, global_vars)
-    
+
             except Exception as e:
                 # Display any errors in the output area
                 output_area.text = f"Error: {e}"
-    
+
         # Bind the Run Code button to the execution function
         document["runCodeButton"].bind("click", execute_generated_code)
     </script>
@@ -79,8 +83,16 @@
     <script>
         // Initialize Blockly Workspace
         var blocklyDiv = document.getElementById('blocklyDiv');
-        var workspace = Blockly.inject(blocklyDiv, {
-            toolbox: '<xml><block type="controls_repeat_ext"></block><block type="math_number"></block><block type="text_print"></block></xml>'
+        Blockly.inject('blocklyDiv', {
+            toolbox: toolbox,  // Your toolbox XML
+            renderer: 'thrasos', // For rounded blocks (optional)
+            theme: Blockly.Theme.defineTheme('customTheme', {
+                base: Blockly.Themes.Classic,
+                componentStyles: {
+                    toolboxBackgroundColour: '#f5f5f5',
+                    flyoutBackgroundColour: '#fafafa'
+                }
+            })
         });
 
         // Function to generate and display Python code

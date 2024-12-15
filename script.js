@@ -3,13 +3,13 @@ const workspace = Blockly.inject('blocklyDiv', {
     toolbox: `
 <xml xmlns="https://developers.google.com/blockly/xml">
     <!-- 1. Basic Input/Output -->
-    <category name=" Input/Output">
+    <category name="📥 Input/Output">
         <block type="input_block"></block>
         <block type="print_block"></block>
     </category>
 
     <!-- 2. Control Flow -->
-    <category name="Control Flow" class="category-controlflow">
+    <category name="🚦 Control Flow" class="category-controlflow">
         <category name="Conditionals" colour="120">
             <block type="python_if_then"></block>
             <block type="python_elif_then"></block>
@@ -26,7 +26,7 @@ const workspace = Blockly.inject('blocklyDiv', {
     </category>
 
     <!-- 3. Data Types and Variables -->
-    <category name="Data Types and Variables">
+    <category name="🅰️ Data Types and Variables">
         <block type="number_block"></block>
         <block type="float_block"></block>
         <block type="text_block"></block>
@@ -37,14 +37,14 @@ const workspace = Blockly.inject('blocklyDiv', {
     </category>
 
     <!-- 4. Typecasting -->
-    <category name="Typecasting" class="category-typecasting">
+    <category name="🛠️ Typecasting" class="category-typecasting">
         <block type="typecast_int_block"></block>
         <block type="typecast_str_block"></block>
         <block type="typecast_float_block"></block>
     </category>
 
     <!-- 5. Operators and Expressions -->
-    <category name="Operators and Expressions">
+    <category name="➕ Operators and Expressions">
         <category name="Expressions" colour="160">
             <block type="expression_block"></block>
             <block type="expression_block1"></block>
@@ -61,7 +61,7 @@ const workspace = Blockly.inject('blocklyDiv', {
     </category>
 
     <!-- 6. Range Blocks -->
-    <category name="Range" class="category-range">
+    <category name="🎛️ Range" class="category-range">
         <block type="range_single_block"></block>
         <block type="range_double_block"></block>
         <block type="range_triple_block"></block>
@@ -69,14 +69,14 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="return_block"></block>
     </category>
 
-    <category name="Functions">
+    <category name="⚙️ Functions">
         <block type="function_block"></block>
         <block type="return_block"></block>
         <block type="function_call_block"></block>
         <block type="function_call_block1"></block>
     </category>
 
-    <category name="List" class="category-list">
+    <category name="📝 List" class="category-list">
         <block type="list_empty_block"></block>
         <block type="list_create_block"></block>
         <block type="list_index_access_block"></block>
@@ -84,12 +84,12 @@ const workspace = Blockly.inject('blocklyDiv', {
         <block type="list_remove_block"></block>
     </category>
 
-    <category name="Tuple" class="category-tuple">
+    <category name="📦 Tuple" class="category-tuple">
         <block type="tuple_access_block"></block>
         <block type="tuple_create_block"></block>
     </category>
 
-    <category name="Dictionary">
+    <category name="📚 Dictionary">
         <block type="dictionary_create_block"></block>
     </category>
 </xml>

@@ -163,6 +163,7 @@ pre {
 .blocklyToolboxDiv {
     background-color: #f0f4f8; /* Light gray-blue background */
     border-right: 1px solid #ddd; /* Optional border on the right */
+    width: 300px;
 }
 
 /* Change the flyout background (where blocks appear) */
@@ -170,11 +171,13 @@ pre {
     fill: #bde0fa; /* Light blue background for flyout */
 }
 
-
 /* Base styles for all Blockly categories */
 .blocklyTreeRow {
-    margin-bottom: 15px;  /* Adjust this value to change the spacing between the rows */
+    margin-bottom: 25px;  /* Adjust this value to change the spacing between the rows */
 }
+
+
+
 
 
 
